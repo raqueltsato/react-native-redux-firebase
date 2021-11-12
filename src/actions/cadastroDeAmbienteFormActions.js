@@ -28,6 +28,13 @@ export const preenche_todos_os_campos = ambiente => ({
     ambiente: ambiente
 
 })
+
+export const SALVA_AMBIENTE_SUCESSO = 'SALVA_AMBIENTE_SUCESSO';
+export const salva_ambiente_sucesso = ambiente => ({
+    type: SALVA_AMBIENTE_SUCESSO    
+
+})
+
 //Limpa os campos da tela de cadastro (caso seja cadastro de um Novo Ambiente)
 export const LIMPA_FORMULARIO = 'LIMPA_FORMULARIO';
 export const limpa_formulario = () => ({
@@ -43,7 +50,7 @@ export const salvaAmbienteNoBD = (cadastroAmbiente) => dispatch => {
             descricao: cadastroAmbiente.descricao,
             img: cadastroAmbiente.img,
         }).then(()=> {
-           console.log("Atualizou o ambiente!");
+           dispatch(limpaCamposCadastroAmbiente());
         }).catch(erro => {
             console.log("Erro na action ao editar um ambiente: ", erro);
         })

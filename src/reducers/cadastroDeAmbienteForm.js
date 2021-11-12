@@ -2,7 +2,8 @@ import { firebase } from "@react-native-firebase/firestore";
 import { PEGA_VALOR_DO_CAMPO, 
         LIMPA_CAMPOS_CADASTRO_AMBIENTE, 
         PREENCHE_TODOS_OS_CAMPOS, 
-        LIMPA_FORMULARIO } from "../actions";
+        LIMPA_FORMULARIO, 
+        SALVA_AMBIENTE_SUCESSO} from "../actions";
 
 const ESTADO_INICIAL = {
     id: null,    
@@ -23,6 +24,8 @@ export default function (state = ESTADO_INICIAL, action) {
         case PREENCHE_TODOS_OS_CAMPOS:
              return action.ambiente;
         case LIMPA_FORMULARIO:
+            return ESTADO_INICIAL;
+        case SALVA_AMBIENTE_SUCESSO:
             return ESTADO_INICIAL;
         default:
             return state;

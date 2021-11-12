@@ -24,14 +24,17 @@ function NovoAmbiente({ cadastroAmbiente,
 
     //Caso seja uma tela de Edição, os campos serão preenchidos com os dados
     React.useEffect(() => {
+        //console.log("Navigation: ", navigation.state);
+        console.log("Route: ", route)
         const {params} = route;
+        console.log("Params: ", params);
         if (params && params.ambienteAEditar) {
             console.log("Olha o parametro: ", params.ambienteAEditar);
             preenche_todos_os_campos(params.ambienteAEditar)
         } else {
             limpa_formulario();
         }
-    }, [])
+    }, [route.params])
     
 
     //firebase.initializeApp(firebaseConfig);
@@ -42,7 +45,7 @@ function NovoAmbiente({ cadastroAmbiente,
         if (validaCampos()) {            
             salvaAmbienteNoBD(cadastroAmbiente)        
             .then(() => {            
-                 navigation.navigate('Início');
+                 navigation.goBack();
                  //console.log("Cadastrou um ambiente");
                  setProcessando(false);
                  setMensagemValidacao("");

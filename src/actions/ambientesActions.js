@@ -12,7 +12,7 @@ const insereAmbienteNoState = ambientes => ({
 
 })
 
-export const listaAmbientesDoBD = () => {
+export const listaAmbientesDoBD =  () => {
      var ambientes = [];
      return dispatch => {
           firebase.firestore().collection('ambientes').orderBy('titulo').onSnapshot(valoresRecebidos => {
@@ -27,6 +27,10 @@ export const listaAmbientesDoBD = () => {
                dispatch(action); 
                
           })
+          
+          
+          
+
     }     
 }
 

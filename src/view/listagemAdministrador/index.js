@@ -7,10 +7,14 @@ import HeaderDrawNav from '../../components/headerDrawNav';
 import AmbienteCard from '../../components/ambienteCard';
 import { listaAmbientesDoBD } from '../../actions';
 
-class ListagemAdministrador extends React.Component {
+/*class ListagemAdministrador extends React.Component {
+
+    
 
     componentDidMount() {
-        this.props.listaAmbientesDoBD();
+        console.log("Entrei na listagem ");
+        this.props.listaAmbientesDoBD();        
+        console.log("ComponentDiddMount: ", this.props.ambientes);
     }
     render(){
         if (this.props.ambientes === null) {
@@ -37,39 +41,27 @@ class ListagemAdministrador extends React.Component {
         </View>
         )
     }
-}
+}*/
 
-/*function ListagemAdministrador({navigation, listaAmbientesDoBD}) {    
-
-    const [ambientes, setAmbientes] = React.useState([]);
-    var listaAmbientes = [];
+function ListagemAdministrador(props) {  
 
     React.useEffect(() => {
-        listaAmbientesDoBD();        
-        //Verifica em tempo real
-        firebase.firestore().collection('ambientes').orderBy('titulo').onSnapshot(valoresRecebidos => {
-            let mudancas = valoresRecebidos.docChanges();
-            mudancas.forEach(item => {                 
-                 listaAmbientes.push({
-                    id: item.doc.id,
-                    ...item.doc.data()
-                })            
-            })
-            setAmbientes(listaAmbientes);
-       })
-    }, [])
+        props.listaAmbientesDoBD();
+             
+ 
+    }, [props.cadastroAmbiente])
 
     return(
         <View>
-            <HeaderDrawNav title='Ambientes Cadastrados' navigation={navigation} />
+            <HeaderDrawNav title='Ambientes Cadastrados' navigation={props.navigation} />
             
             <FlatList
-                data={ambientes}
+                data={props.ambientes}
                 renderItem= { ({item}) => {
                 return (                    
                     <AmbienteCard 
                         ambiente = {item}
-                        redirecionamento = {() => navigation.navigate('Detalhes do Ambiente', {ambiente: item})}
+                        redirecionamento = {() => props.navigation.navigate('Detalhes do Ambiente', {ambiente: item})}
                 />                   
                 )
             }}
@@ -78,7 +70,7 @@ class ListagemAdministrador extends React.Component {
             
         </View>
     )
-}*/
+}
 
 const mapDispatchToProps = {
     //actions
@@ -86,7 +78,7 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state) => {
-    const {listaDeAmbientes} = state;
+    const {listaDeAmbientes, cadastroAmbiente} = state;
 
     /*if (listaDeAmbientes === null) {
         return {ambientes: listaDeAmbientes}
@@ -103,7 +95,8 @@ const mapStateToProps = (state) => {
     })*/
     return ({
         usuario: state.usuario,
-        ambientes: listaDeAmbientes
+        ambientes: listaDeAmbientes,
+        cadastroAmbiente: cadastroAmbiente
     })
 }
 

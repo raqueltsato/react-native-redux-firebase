@@ -16,7 +16,9 @@ export default function DetalhesAmbiente(props) {
             <ScrollView>                           
                 <DetalheAmbienteCard ambiente = { ambiente }/>   
                 <BotaoPrincipal textoBotao="Editar" 
-                    onPress= {() => {props.navigation.navigate('Cadastro de Ambiente', {ambienteAEditar: ambiente})} }
+                    onPress= {() => {
+                        console.log("Valor do ambiente em detalhe: ", ambiente);
+                        props.navigation.navigate('Cadastro de Ambiente', {ambienteAEditar: ambiente})} }
             />
                 <BotaoSecundario textoBotao="Excluir"
                     onPress = { evento =>

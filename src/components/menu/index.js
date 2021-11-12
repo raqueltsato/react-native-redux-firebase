@@ -16,29 +16,15 @@ const Drawer = createDrawerNavigator();
 
 
 function Menu(props) {
-    //console.log("props menu:", props.usuario);
-  React.useEffect(() => {     
-      
-        props.navigation.setParams({usuario: props.usuario._data.nome});
-      
-  }, [usuario])
-    const {nome, email} = props.usuario._data;
-    const [usuario, setUsuario] = React.useState(nome);    
-    console.log("Route de menu: ", props.route);
-    console.log("Navigation de menu: ", props.navigation);
-    
-    console.log("Props navigation de menu: ", props.navigation);
-    //setUsuario(nome);
-    //navigation.setParams({nome, email});
+   
     return(
         <Drawer.Navigator 
             initialRouteName= "Início"
             drawerStyle={styles.drawerStyle}
             drawerContentOptions={{labelStyle: {"color": "#fff", fontSize: 18}}}   
-            drawerContent={props => {
-                <CustomDrawerContent {...props} />
-                {console.log("rops de Custom::: ", props)}
-            }
+            drawerContent={propsInterno => 
+                <CustomDrawerContent {...propsInterno} {...props}  />               
+            
             }            
 
         >
@@ -68,19 +54,16 @@ function CustomDrawerContent(props, routes) {
     )
 }
 
-function PerfilDoUsuario({navigation}, props) {
-    console.log("navigation ", navigation.nome);
-    //const [usuario, setUsuario] = React.useState("");
-    
+function PerfilDoUsuario(props) {   
     
     return(
-        <TouchableOpacity onPress={()=>{props.navigation.navigate("Home")}}>
+        <TouchableOpacity onPress={()=>{props.navigation.navigate("Início")}}>
             <View style={styles.container}>
                 <View style={styles.imageContainer}>
                     <Image source={{uri: "https://randomuser.me/api/portraits/men/33.jpg"}} style={styles.imageStyle} />
                 </View>
                 <View style={styles.containerText}>
-                    <Text style={styles.drawerText}>test</Text>
+                    <Text style={styles.drawerText}>{props.usuario._data.nome}</Text>
                     <Text style={styles.drawerTextSmall}>Open profile</Text>
                 </View>
 
