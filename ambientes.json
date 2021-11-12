@@ -1,0 +1,59 @@
+[
+    {
+        "id": 1,
+        "titulo": "Salão de festas",
+        "capacidade": 100,
+        "img": 
+            "http://www.afrikanhouse.com.br/images/paginas/salao-de-festa-em-sao-paulo.jpg",
+        "descricao": "Mussum Ipsum, cacilds vidis litro abertis. Si num tem leite então bota uma pinga aí cumpadi!"
+
+    },
+    {
+        "id": 2,
+        "titulo": "Campo Futebol",
+        "capacidade": 30,
+        "img": 
+            "https://http2.mlstatic.com/D_NQ_NP_958528-MLB27863669499_072018-O.jpg",
+        "descricao": "Mussum Ipsum, cacilds vidis litro abertis. Si num tem leite então bota uma pinga aí cumpadi! Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo! Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis. Leite de capivaris, leite de mula manquis sem cabeça.Por outro lado, a competitividade nas transações comerciais estimula a padronização dos índices pretendidos. Todavia, o início da atividade geral de formação de atitudes causa impacto indireto na reavaliação dos procedimentos normalmente adotados"
+
+    },
+    {
+        "id": 3,
+        "titulo": "Salão de eventos",
+        "capacidade": 130,
+        "img": 
+            "https://santamonica.rec.br/wp-content/uploads/2018/03/Dicas-de-como-escolher-um-salao-de-festas-1--800x394.jpg",
+        "descricao": "  Nunca é demais lembrar o peso e o significado destes problemas, uma vez que o novo modelo estrutural aqui preconizado garante a contribuição de um grupo importante na determinação das novas proposições. Todavia, o desenvolvimento contínuo de distintas formas de atuação maximiza as possibilidades por conta dos conhecimentos estratégicos para atingir a excelência. Desta maneira, a constante divulgação das informações desafia a capacidade de equalização das direçõ"
+
+    },
+    {
+        "id": 4,
+        "titulo": "Churrasqueira",
+        "capacidade": 30,
+        "img": 
+            "https://santamonica.rec.br/wp-content/uploads/2018/03/Dicas-de-como-escolher-um-salao-de-festas-1--800x394.jpg",
+        "descricao": "Acima de tudo, é fundamental ressaltar que o surgimento do comércio virtual oferece uma interessante oportunidade para verificação das regras de conduta normativas. Evidentemente, o consenso sobre a necessidade de qualificação prepara-nos para enfrentar"
+
+    },
+    {
+        "id": 5,
+        "titulo": "Salão de eventos",
+        "capacidade": 130,
+        "img": 
+            "https://santamonica.rec.br/wp-content/uploads/2018/03/Dicas-de-como-escolher-um-salao-de-festas-1--800x394.jpg",
+        "descricao": "Mussum Ipsum, cacilds vidis litro abertis. Si num tem leite então bota uma pinga aí cumpadi! Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo! Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis. Leite de capivaris, leite de mula manquis sem cabeça."
+
+    },
+    {
+        "id": 6,
+        "titulo": "Salão Bla bla bla",
+        "capacidade": 130,
+        "img": 
+            "https://santamonica.rec.br/wp-content/uploads/2018/03/Dicas-de-como-escolher-um-salao-de-festas-1--800x394.jpg",
+        "descricao": "Mussum Ipsum, cacilds vidis litro abertis. Si num tem leite então bota uma pinga aí cumpadi! Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo! Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis. Leite de capivaris, leite de mula manquis sem cabeça."
+
+    }
+    
+
+
+]
