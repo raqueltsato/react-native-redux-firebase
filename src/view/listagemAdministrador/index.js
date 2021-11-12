@@ -49,7 +49,7 @@ function ListagemAdministrador(props) {
         props.listaAmbientesDoBD();
              
  
-    }, [props.cadastroAmbiente])
+    }, [props.ambientes])
 
     return(
         <View>

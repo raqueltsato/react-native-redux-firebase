@@ -14,24 +14,19 @@ const insereAmbienteNoState = ambientes => ({
 
 export const listaAmbientesDoBD =  () => {
      var ambientes = [];
-     return dispatch => {
-          firebase.firestore().collection('ambientes').orderBy('titulo').onSnapshot(valoresRecebidos => {
-               let mudancas = valoresRecebidos.docChanges();
-               mudancas.forEach(item => {                           
-                    ambientes.push({
-                         id: item.doc.id,
-                         ...item.doc.data()})                          
-               }) 
-               //console.log("Ambientes com id: ", ambientes)         
-               const action = insereAmbienteNoState(ambientes);
-               dispatch(action); 
-               
+     return async dispatch => {          
+          const query = await firebase.firestore().collection('ambientes').get();
+          query.forEach((item)=> {
+               ambientes.push({
+                    id: item.id,
+                    ...item.data()
+               })
           })
+          //console.log("Ambientes com id: ", ambientes)         
+          const action = insereAmbienteNoState(ambientes);
+          dispatch(action); 
           
-          
-          
-
-    }     
+     }         
 }
 
 //Não é realtime

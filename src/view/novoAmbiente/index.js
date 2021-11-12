@@ -23,9 +23,8 @@ function NovoAmbiente({ cadastroAmbiente,
     const [processando, setProcessando] = React.useState(false);
 
     //Caso seja uma tela de Edição, os campos serão preenchidos com os dados
-    React.useEffect(() => {
-        //console.log("Navigation: ", navigation.state);
-        console.log("Route: ", route)
+    React.useEffect(() => {        
+        //console.log("Route: ", route)
         const {params} = route;
         console.log("Params: ", params);
         if (params && params.ambienteAEditar) {
