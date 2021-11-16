@@ -36,7 +36,13 @@ function Login(props) {
         .then((acao) => {
             console.log("A ação recebida é os dados do usuario: ", acao);
             setMensagem(" ");
-            props.navigation.replace('Menu');
+			console.log("Usuario e-mail: ", acao.data().email);
+			if (acao.data().email === 'teste@email.com') {
+				props.navigation.replace('Menu');
+			} else {
+				props.navigation.replace('MenuMorador');
+			}
+            
         })
         .catch( erro => {
             setProcessando(false);

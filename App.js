@@ -14,6 +14,7 @@ import Login from './src/view/login';
 import Menu from './src/components/menu';
 import CadastroUsuario from './src/view/cadastroUsuario';
 import DetalhesAmbiente from './src/view/detalhesAmbiente';
+import MenuMorador from './src/components/menuMorador';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -44,6 +45,7 @@ const App: () => React$Node = () => {
                 component={DetalhesAmbiente} 
                 options={{ title: 'Detalhes do Ambiente'} }
             />
+            <Stack.Screen name="MenuMorador" component={MenuMorador} options={ {headerShown: false} } />
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>

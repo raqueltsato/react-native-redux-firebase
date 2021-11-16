@@ -3,6 +3,7 @@ import * as React from 'react';
 import firebase from '@react-native-firebase/app';
 import { useSelector } from 'react-redux';
 import {useFirestoreConnect, useFirestore, useFirebase} from 'react-redux-firebase';
+import { Alert } from 'react-native';
 
 export const INSERE_AMBIENTE_NO_STATE = 'INSERE_AMBIENTE_NO_STATE';
 
@@ -27,6 +28,42 @@ export const listaAmbientesDoBD =  () => {
           dispatch(action); 
           
      }         
+}
+
+export const apagaAmbienteDoBD = ambiente => {
+     return dispatch => {
+        return new Promise((resolve, reject) => {
+             Alert.alert(
+                  "Excluir", 
+                  `Deseja excluir o ambiente ${ambiente.titulo}?`,
+                  [{
+                       text: "Excluir",
+                       onPress: async () => {  
+                         try{
+                              await firebase
+                              .firestore()
+                              .collection('ambientes')
+                              .doc(ambiente.id)
+                              .delete();
+                         
+                              resolve(true);
+                         } catch(erro) {
+                              reject(erro);
+                         }  
+                       }
+                  }, {
+                       text: "Cancelar",
+                       onPress: () => {
+                         resolve(false);
+
+                       }, 
+                       style: 'cancel'
+                  }],
+                  { cancelable: false }
+                  )
+        })  
+     }
+
 }
 
 //Não é realtime
