@@ -35,7 +35,7 @@ const estilo = StyleSheet.create({
     container: {                  
         borderWidth: 1,
         marginHorizontal: 15,
-        marginVertical: 5,
+        marginVertical: 10,
         borderRadius: 5,
         borderColor: '#C2C3C7',
         shadowColor: '#C2C3C7',

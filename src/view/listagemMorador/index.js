@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, Text, Button, FlatList, ActivityIndicator} from 'react-native';
+import {View, Text, Button, FlatList, ActivityIndicator, StyleSheet, ImageBackground} from 'react-native';
 import { connect } from 'react-redux';
 import firebase from '@react-native-firebase/app'
 
@@ -17,16 +17,16 @@ function ListagemMorador(props) {
 
     return(
         <View>
-            <HeaderDrawNav title='Morador' navigation={props.navigation} />
-            <Text>Tela morador </Text>
-            
+            <HeaderDrawNav title='Vila Bella' navigation={props.navigation} />            
+                <Text>Tela morador </Text>
+
             <FlatList
                 data={props.ambientes}
                 renderItem= { ({item}) => {
                 return (                    
                     <AmbienteCard 
                         ambiente = {item}
-                        redirecionamento = {() => props.navigation.navigate('Detalhes do Ambiente', {ambiente: item})}
+                        redirecionamento = {() => props.navigation.navigate('Detalhes Morador', {ambiente: item})}
                 />                   
                 )
             }}

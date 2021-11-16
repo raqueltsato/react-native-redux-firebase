@@ -8,11 +8,11 @@ import { HeaderBackground } from '@react-navigation/stack';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { createIconSetFromFontello } from 'react-native-vector-icons';
+import ReservasMorador from '../../view/reservasMorador';
 
 Icon.loadFont();
 
 const Drawer = createDrawerNavigator();
-
 
 function MenuMorador(props) {
    
@@ -30,8 +30,13 @@ function MenuMorador(props) {
             <Drawer.Screen 
                 name= "InícioMorador" 
                 component={ListagemMorador} 
-                options={ {drawerIcon: config => <Icon name="home" size={30} color="#fff"/>} }
-            />           
+                options={ {title: 'Início', drawerIcon: config => <Icon name="home" size={30} color="#fff"/>} }
+            />   
+            <Drawer.Screen 
+                name= "ReservasMorador" 
+                component={ReservasMorador} 
+                options={ {title: 'Minhas Reservas', drawerIcon: config => <Icon name="calendar-check-o" size={28} color="#fff"/>} }
+            />         
 
         </Drawer.Navigator>
     )
@@ -73,7 +78,7 @@ const styles = StyleSheet.create({
     },
     drawerTextSmall: {
         color: '#fff',
-        fontSize: 12
+        fontSize: 14
     },
     drawerText: {
         color: '#fff',

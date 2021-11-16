@@ -11,7 +11,7 @@ import firebaseConfig from '../../config/firebase';
 
 function Login(props) {  
     
-    const [email, setEmail] = React.useState("teste@email.com");
+    const [email, setEmail] = React.useState("dino@email.com");
     const [senha, setSenha] = React.useState("123456");
     const [processando, setProcessando] = React.useState(false);
     const [mensagem, setMensagem] = React.useState("");	

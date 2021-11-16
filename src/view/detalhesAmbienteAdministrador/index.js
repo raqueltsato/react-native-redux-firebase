@@ -8,7 +8,7 @@ import BotaoPrincipal from "../../components/botaoPrincipal";
 import BotaoSecundario from "../../components/botaoSecundario";
 import { apagaAmbienteDoBD } from "../../actions";
 
-function DetalhesAmbiente(props) {
+function DetalhesAmbienteAdministrador(props) {
  
     const { ambiente } = props.route.params;  
     //const navigation = useNavigation();  
@@ -43,4 +43,4 @@ const mapDispatchToProps = {
     apagaAmbienteDoBD
 }
 
-export default connect(null, mapDispatchToProps)(DetalhesAmbiente);
+export default connect(null, mapDispatchToProps)(DetalhesAmbienteAdministrador);

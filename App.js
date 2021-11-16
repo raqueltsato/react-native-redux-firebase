@@ -13,7 +13,8 @@ import { composeWithDevTools } from 'remote-redux-devtools';
 import Login from './src/view/login';
 import Menu from './src/components/menu';
 import CadastroUsuario from './src/view/cadastroUsuario';
-import DetalhesAmbiente from './src/view/detalhesAmbiente';
+import DetalhesAmbienteAdministrador from './src/view/detalhesAmbienteAdministrador';
+import DetalhesAmbienteMorador from './src/view/detalheAmbienteMorador';
 import MenuMorador from './src/components/menuMorador';
 
 import {NavigationContainer} from '@react-navigation/native';
@@ -42,10 +43,15 @@ const App: () => React$Node = () => {
             <Stack.Screen name="Cadastro" component={CadastroUsuario} options= {{headerShown: false}}  />
             <Stack.Screen 
                 name="Detalhes do Ambiente" 
-                component={DetalhesAmbiente} 
+                component={DetalhesAmbienteAdministrador} 
                 options={{ title: 'Detalhes do Ambiente'} }
             />
             <Stack.Screen name="MenuMorador" component={MenuMorador} options={ {headerShown: false} } />
+            <Stack.Screen 
+                name="Detalhes Morador" 
+                component={DetalhesAmbienteMorador} 
+                options={{ title: 'Detalhes do Ambiente'} }
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>
