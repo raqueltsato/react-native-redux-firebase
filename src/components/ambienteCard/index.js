@@ -17,7 +17,7 @@ export default function AmbienteCard ({ambiente, redirecionamento}){
             <Image style={estilo.imagemAmbiente}
                     source= {
                         {
-                            uri: ambiente.img
+                            uri: `data:image/jpeg;base64,${ambiente.img}`
                         }
                     }
                     aspectRatio={1}

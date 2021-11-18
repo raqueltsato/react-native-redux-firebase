@@ -14,7 +14,7 @@ function DetalheAmbienteCard({ambiente}) {
             <Image style={estilo.imagemAmbiente}
                     source= {
                         {
-                            uri: ambiente.img
+                            uri: `data:image/jpeg;base64,${ambiente.img}`
                         }
                     }
                     aspectRatio={1}
