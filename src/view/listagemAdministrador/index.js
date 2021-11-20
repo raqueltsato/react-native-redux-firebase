@@ -7,42 +7,6 @@ import HeaderDrawNav from '../../components/headerDrawNav';
 import AmbienteCard from '../../components/ambienteCard';
 import { listaAmbientesDoBD } from '../../actions';
 
-/*class ListagemAdministrador extends React.Component {
-
-    
-
-    componentDidMount() {
-        console.log("Entrei na listagem ");
-        this.props.listaAmbientesDoBD();        
-        console.log("ComponentDiddMount: ", this.props.ambientes);
-    }
-    render(){
-        if (this.props.ambientes === null) {
-            return <ActivityIndicator />
-        }
-        return (
-            <View>
-            <HeaderDrawNav title='Ambientes Cadastrados' navigation={this.props.navigation} />
-            
-            <FlatList
-                data={this.props.ambientes}
-
-                renderItem= { ({item}) => {
-                return (                    
-                    <AmbienteCard 
-                        ambiente = {item}
-                        redirecionamento = {() => this.props.navigation.navigate('Detalhes do Ambiente', {ambiente: item})}
-                />                   
-                )
-            }}
-            keyExtractor={item => item.id.toString()}
-            />            
-            
-        </View>
-        )
-    }
-}*/
-
 function ListagemAdministrador(props) {  
 
     React.useEffect(() => {

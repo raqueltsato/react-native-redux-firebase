@@ -5,31 +5,19 @@ import {
     StyleSheet,        
     ScrollView
  } from 'react-native'
-import BotaoPrincipal from "../botaoPrincipal";
 
-function ReservasCardMorador({reserva}) {
-    console.log("Valor da reserva no componente: ", reserva);
-    const dataConvertida = reserva.dataReserva.toLocaleString();
+function ReservasCardAdministrador({reserva}) {
+    console.log("Valor da reserva no componente do Admin: ", reserva);
+    //const dataConvertida = reserva.dataReserva.toLocaleString();
     
     return (
         <View style = {estilo.container}>            
             <View style = {estilo.dadosDaReserva}>            
-                <Text style={estilo.dataReserva}>{dataConvertida}</Text>
-                <Text style={estilo.ambienteNome}>{reserva.ambienteTitulo}</Text>
+                <Text style={estilo.dataReserva}>{reserva.dataReserva}</Text>
+                <Text style={estilo.usuarioNome}>{reserva.usuarioNome}</Text>
                 
-            </View>
-            <View style = {estilo.quadro}>
-                <BotaoPrincipal textoBotao="Desistir" 
-                    onPress= {() => {
-                        console.log("Clicou em desistir");
-                    }}
-                />  
-            </View>
-                      
-                
+            </View>      
         </View>
-            
-        
     )
 }
 
@@ -47,27 +35,27 @@ const estilo = StyleSheet.create({
         shadowRadius: 5,
         elevation: 5,
         backgroundColor: '#FFFFFF',
-        padding: 5, 
+        paddingVertical: 5, 
         justifyContent: 'center',
         alignItems: 'center'
     },
     dadosDaReserva: {
-        width: '50%',        
+        width: '90%',        
         justifyContent: 'flex-start',
-        alignItems: 'flex-start',       
-       
+        alignItems: 'flex-start',    
+        
     },    
     dataReserva: {
         fontSize: 21,
         paddingTop: 2,
         fontWeight: 'bold',
+        marginLeft: 0,
         paddingLeft: 3,        
     },
-    ambienteNome: {
+    usuarioNome: {
         fontSize: 18,
         paddingBottom: 3,
-    }    
-    
+    }   
 });
 
-export default ReservasCardMorador;
+export default ReservasCardAdministrador;

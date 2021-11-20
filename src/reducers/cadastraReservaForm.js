@@ -3,7 +3,9 @@ import { LIMPA_CAMPOS_RESERVA, PREENCHE_CAMPO_RESERVA } from "../actions";
 const ESTADO_INICIAL_RESERVA = {
     ambienteId: '',
     dataReserva: new Date(),
-    usuarioEmail: ''
+    usuarioEmail: '',
+    usuarioNome: '',
+    ambienteTitulo: ''
 }
 
 export default (state= ESTADO_INICIAL_RESERVA , action) => {

@@ -18,15 +18,14 @@ export const limpaCamposReserva = () => {
 }
 
 export const salvaReservaNoBD = (cadastraReserva)=> dispatch => {
-    console.log("Entrou na action de salvar reserva: ", cadastraReserva);
-    console.log("Action ambienteId:", cadastraReserva.id);
-    console.log("Action dataReserva:", cadastraReserva.dataReserva);
-    console.log("Action usuarioEmail: ", cadastraReserva.usuarioEmail);
+    
     const db = firebase.firestore();
     return db.collection('reservas').add({
         ambienteId: cadastraReserva.ambienteId,
         dataReserva: cadastraReserva.dataReserva,
-        usuarioEmail: cadastraReserva.usuarioEmail
+        usuarioEmail: cadastraReserva.usuarioEmail,
+        usuarioNome: cadastraReserva.usuarioNome,
+        ambienteTitulo: cadastraReserva.ambienteTitulo
     }).then(()=> {
         dispatch(limpaCamposReserva());
         console.log("Salvou no BD pela action");

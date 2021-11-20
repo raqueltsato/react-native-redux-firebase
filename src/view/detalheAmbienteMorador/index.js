@@ -11,15 +11,21 @@ function DetalhesAmbienteMorador(props) {
  
     const { ambiente } = props.route.params;    
     const [exibeDatePicker, setExibeDatePicker] = useState(false);
-    const emailDoUsuario = props.usuario.data().email
+    const emailDoUsuario = props.usuario.data().email;
+    const nomeDoUsuario = props.usuario.data().nome;
 
-    function selecionaData(evento, dataSelecionada) {
-        const dataEmString = dataSelecionada.toString();
-        console.log("Data transformada: ", dataEmString);
+    function selecionaData(evento, dataSelecionada) { 
+        //const dataFormatada = dataSelecionada.toString();      
+        const dataFormatada = dataSelecionada.getDate() + "/" + (dataSelecionada.getMonth() + 1) + "/" + dataSelecionada.getFullYear() 
+
+        console.log("Data formatada: ", dataFormatada)        
+        
         if (dataSelecionada){
             props.preenche_campo_reserva('ambienteId', ambiente.id);
+            props.preenche_campo_reserva('ambienteTitulo', ambiente.titulo);
             props.preenche_campo_reserva('usuarioEmail', emailDoUsuario);
-            props.preenche_campo_reserva('dataReserva', dataEmString);            
+            props.preenche_campo_reserva('usuarioNome', nomeDoUsuario);
+            props.preenche_campo_reserva('dataReserva', dataFormatada);            
         }        
         setExibeDatePicker(false);
     }
@@ -80,6 +86,7 @@ const estilo = StyleSheet.create({
     tituloReserva:{
         marginHorizontal: 15,
         fontSize: 21,
+        fontWeight: 'bold',
         marginTop: 20,
         borderBottomWidth: 1,
     },
