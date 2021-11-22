@@ -19,6 +19,14 @@ export const limpaCamposReserva = () => {
 }
 
 export const salvaReservaNoBD = (cadastraReserva)=> async dispatch => {
+    //A data é preenchida automaticamente com a data atual, os outros campos são preenchidos somente quando é selecionada uma data
+    if (cadastraReserva.ambienteId == "" || cadastraReserva.usuarioEmail == "") {
+        Alert.alert(
+            "Preenchimento obrigatório",
+            "Escolha uma data para a reserva."
+        );
+        throw new Error("Preencha os dados corretamente");
+    }
     
     let checaAmbiente = [];
     
