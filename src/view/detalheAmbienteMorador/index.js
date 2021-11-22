@@ -66,6 +66,7 @@ function DetalhesAmbienteMorador(props) {
                     exibeDatePicker && (
                         <DateTimePicker
                             testID="dateTimePicker"
+                            minimumDate={ new Date()}
                             value={new Date()}
                             mode="date"
                             is24Hour={true}
