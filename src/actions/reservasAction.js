@@ -55,3 +55,38 @@ export const listaReservasDoBDAdministrador =  (idDoAmbiente) => {
           dispatch(action);
      }         
 }
+
+export const apagaReservaDoBD = reserva => {
+     return dispatch => {
+        return new Promise((resolve, reject) => {
+             Alert.alert(
+                  "Desistir", 
+                  `Deseja desistir da reserva do ambiente ${reserva.ambienteTitulo}?`,
+                  [{
+                       text: "Excluir",
+                       onPress: async () => {  
+                         try{                              
+                              await firebase
+                                   .firestore()
+                                   .collection('reservas')
+                                   .doc(reserva.id)
+                                   .delete();                        
+                              resolve(true);
+                         } catch(erro) {
+                              reject(erro);
+                         }  
+                       }
+                  }, {
+                       text: "Cancelar",
+                       onPress: () => {
+                         resolve(false);
+
+                       }, 
+                       style: 'cancel'
+                  }],
+                  { cancelable: false }
+                  )
+        })  
+     }
+
+}

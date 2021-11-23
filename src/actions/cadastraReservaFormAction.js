@@ -38,7 +38,7 @@ export const salvaReservaNoBD = (cadastraReserva)=> async dispatch => {
                 ...reserva.data()
            })
         })
-    console.log("Será que achou o ambiente id? ", checaAmbiente);
+    
     let checaData = checaAmbiente.find(ambiente => {
         return ambiente.dataReserva ==  cadastraReserva.dataReserva;
     })

@@ -7,8 +7,7 @@ import {
  } from 'react-native'
 import BotaoPrincipal from "../botaoPrincipal";
 
-function ReservasCardMorador({reserva}) {
-    console.log("Valor da reserva no componente: ", reserva);
+function ReservasCardMorador({reserva, onPress}) {    
     const dataConvertida = reserva.dataReserva.toLocaleString();
     
     return (
@@ -20,9 +19,7 @@ function ReservasCardMorador({reserva}) {
             </View>
             <View style = {estilo.quadro}>
                 <BotaoPrincipal textoBotao="Desistir" 
-                    onPress= {() => {
-                        console.log("Clicou em desistir");
-                    }}
+                    onPress= {onPress}
                 />  
             </View>
                       

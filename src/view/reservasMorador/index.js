@@ -2,17 +2,28 @@ import * as React from 'react';
 import {View, Text, Button, FlatList} from 'react-native';
 import firebase from '@react-native-firebase/app';
 import { connect } from 'react-redux';
+import { apagaReservaDoBD } from '../../actions';
 
 import HeaderDrawNav from '../../components/headerDrawNav';
 import ReservasCardMorador from '../../components/reservasCardMorador';
 import { listaReservasDoBDMorador } from '../../actions';
 
-function ReservasMorador({navigation, usuario, listaReservasDoBDMorador, reservas}) {
+function ReservasMorador({navigation, usuario, listaReservasDoBDMorador, reservas, apagaReservaDoBD}) {
     const emailDoUsuario = usuario.data().email;    
 
     React.useEffect(() => {       
         listaReservasDoBDMorador(emailDoUsuario);                     
-    }, [])
+    }, [reservas])
+
+    function apagarReserva(reserva) {
+        apagaReservaDoBD(reserva)
+        .then((acao) => {
+            console.log("Exclusão de reserva na action foi concluida", acao);
+        })
+        .catch( erro => { 
+            console.log("Deu erro na action: ", erro);
+        });	
+    }
 
     return(
         <View>            
@@ -22,7 +33,9 @@ function ReservasMorador({navigation, usuario, listaReservasDoBDMorador, reserva
                 renderItem= { ({item}) => {
                 return (                    
                     <ReservasCardMorador 
-                        reserva = {item}                        
+                        reserva = {item} 
+                        onPress = {evento =>
+                            apagarReserva(item)}                       
                 />                   
                 )
             }}
@@ -34,7 +47,8 @@ function ReservasMorador({navigation, usuario, listaReservasDoBDMorador, reserva
 
 const mapDispatchToProps = {
     //actions
-    listaReservasDoBDMorador
+    listaReservasDoBDMorador,
+    apagaReservaDoBD
 }
 
 const mapStateToProps = (state) => {     
