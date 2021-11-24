@@ -37,7 +37,7 @@ function Login(props) {
             console.log("A ação recebida é os dados do usuario: ", acao);
             setMensagem(" ");
 			console.log("Usuario e-mail: ", acao.data().email);
-			if (acao.data().email === 'teste@email.com') {
+			if (acao.data().email === 'admin@email.com') {
 				props.navigation.replace('Menu');
 			} else {
 				props.navigation.replace('MenuMorador');

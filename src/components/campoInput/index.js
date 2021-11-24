@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
         fontSize: 22,
         marginBottom: 10,
         backgroundColor:'#EAEAEA',
+        textAlignVertical: 'top'
         
     }, 
 })
