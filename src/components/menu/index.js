@@ -58,10 +58,7 @@ function PerfilDoUsuario(props) {
     
     return(
         <TouchableOpacity onPress={()=>{props.navigation.navigate("Início")}}>
-            <View style={styles.container}>
-                <View style={styles.imageContainer}>
-                    <Image source={{uri: "https://randomuser.me/api/portraits/men/33.jpg"}} style={styles.imageStyle} />
-                </View>
+            <View style={styles.container}>                
                 <View style={styles.containerText}>
                     <Text style={styles.drawerText}>{props.usuario.data().nome}</Text>
                     <Text style={styles.drawerTextSmall}>{props.usuario.data().email}</Text>
@@ -72,19 +69,14 @@ function PerfilDoUsuario(props) {
     )
 }
 
-const styles = StyleSheet.create({
-    imageContainer: {
-        marginTop: 10,
-        borderWidth: 1,
-        borderColor: '#DDD',
-        elevation: 6
-    },
+const styles = StyleSheet.create({    
     containerText: {
-        alignItems: 'center'
+        marginTop: 15,
+        alignItems: 'center',       
     },
     drawerTextSmall: {
         color: '#fff',
-        fontSize: 12
+        fontSize: 14
     },
     drawerText: {
         color: '#fff',

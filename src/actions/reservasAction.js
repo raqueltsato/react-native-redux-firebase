@@ -63,7 +63,7 @@ export const apagaReservaDoBD = reserva => {
                   "Desistir", 
                   `Deseja desistir da reserva do ambiente ${reserva.ambienteTitulo}?`,
                   [{
-                       text: "Excluir",
+                       text: "Desistir",
                        onPress: async () => {  
                          try{                              
                               await firebase
