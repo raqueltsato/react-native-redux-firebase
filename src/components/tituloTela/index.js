@@ -5,16 +5,16 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 Icon.loadFont();
 
-export default function HeaderDrawNav({title, navigation}) {
+export default function TituloTela({titulo, navigation}) {
     return(
         <View style={styles.container}>
-            <View style={styles.containerButton}>
-                <TouchableOpacity style={styles.button} onPress={()=>{navigation.openDrawer()}} > 
+            <View style={styles.botaoContainer}>
+                <TouchableOpacity style={styles.botao} onPress={()=>{navigation.openDrawer()}} > 
                     <Icon name="bars" size={28} color="#FFF" />
                 </TouchableOpacity>
             </View>
-            <View style={styles.containerTitle}>
-                <Text style={styles.text}>{title}</Text>
+            <View style={styles.tituloContainer}>
+                <Text style={styles.text}>{titulo}</Text>
             </View>
         </View>
     )
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row'
     },
-    button: {
+    botao: {
         backgroundColor: '#94B0DA'
     },
     text: {
@@ -32,11 +32,11 @@ const styles = StyleSheet.create({
         padding: 5,
         fontSize: 23,
     },
-    containerTitle: {
+    tituloContainer: {
         backgroundColor: '#94B0DA',
         width: '100%'
     },
-    containerButton: {
+    botaoContainer: {
         justifyContent: 'center',
         backgroundColor: '#94B0DA',
         paddingHorizontal: 10

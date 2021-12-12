@@ -15,7 +15,7 @@ const usuarioLogout = () => ({
     type: USUARIO_LOGOUT,    
 })
 
-var firebaseConfig = {
+/*var firebaseConfig = {
     apiKey: "AIzaSyDqyLkXmwBmocWCFDBvpX8kWOosXuM7c8g",
     authDomain: "vilabela2-ae85a.firebaseapp.com",
     projectId: "vilabela2-ae85a",
@@ -23,7 +23,7 @@ var firebaseConfig = {
     messagingSenderId: "539547186884",
     appId: "1:539547186884:web:03718a7862604b68cc7b91",
     databaseURL: "https://vilabela2-ae85a.firebaseio.com",
-};
+};*/
 
 export const acaoBotaoEntrar =  (email, senha) => dispatch => {
     console.log("Firebase length: ", firebase.apps.length);
@@ -61,6 +61,33 @@ export const acaoBotaoEntrar =  (email, senha) => dispatch => {
                         );
                 
             }
+            return Promise.reject(erro);
+            //this.setState({mensagem: this.verificaErroDeLogin(erro.code)});
+                //console.log('Erro', erro);
+        })
+       
+}
+
+export const acaoBotaoSair =  () => dispatch => {
+    console.log("Firebase length: ", firebase.apps.length);
+    console.log("Clicou em sair");
+    
+    if (firebase.apps.length == 0) {
+        const app = firebase.initializeApp(firebaseConfig);
+    } else {
+        firebase.app();
+    }
+
+    return firebase.auth().signOut()
+        .then( async (usuario) => {     
+            console.log("Fez o signOut");   
+            const acao = usuarioLogout();  
+            console.log("Fez a acao de signout");
+            dispatch(acao);                      
+        })
+        .catch(erro => {
+            console.log("Deu erro no Logout:", erro);
+            console.log(erro.code);           
             return Promise.reject(erro);
             //this.setState({mensagem: this.verificaErroDeLogin(erro.code)});
                 //console.log('Erro', erro);

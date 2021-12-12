@@ -3,7 +3,7 @@ import {View, Text, Button, FlatList, ActivityIndicator, StyleSheet, Image, Dime
 import { connect } from 'react-redux';
 import firebase from '@react-native-firebase/app'
 
-import HeaderDrawNav from '../../components/headerDrawNav';
+import TituloTela from '../../components/tituloTela';
 import AmbienteCard from '../../components/ambienteCard';
 import { listaAmbientesDoBD } from '../../actions';
 import background from '../../assets/background.jpg';
@@ -20,7 +20,7 @@ function ListagemMorador(props) {
 
     return(
         <ScrollView>
-            <HeaderDrawNav title='Vila Bela' navigation={props.navigation} />            
+            <TituloTela titulo='Vila Bela' navigation={props.navigation} />            
             <Image source={background} style={ estilo.imagemFundo}/>
             <Text style={estilo.bannerTexto}>Usufrua dos benefícios {"\n"}
                 do Condomínio {"\n"}

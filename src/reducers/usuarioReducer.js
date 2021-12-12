@@ -5,7 +5,8 @@ export default function usuarioReducer(state=null, action) {
         case USUARIO_LOGIN_SUCESSO:
             return action.usuario;
         case USUARIO_LOGOUT:
-            return null;
+            console.log("Valor do state no reducer: ", state);
+            return state;
         default:
             return state;
     }

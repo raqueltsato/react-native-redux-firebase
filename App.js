@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, LogBox} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import { Provider } from 'react-redux';
@@ -19,6 +19,8 @@ import MenuMorador from './src/components/menuMorador';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+
+LogBox.ignoreAllLogs(true);
 
 const enhance = composeWithDevTools({
   realtime: true,

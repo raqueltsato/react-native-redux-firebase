@@ -9,6 +9,7 @@ import { HeaderBackground } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { createIconSetFromFontello } from 'react-native-vector-icons';
 import ReservasMorador from '../../view/reservasMorador';
+import {acaoBotaoSair} from '../../actions';
 
 Icon.loadFont();
 
@@ -19,10 +20,10 @@ function MenuMorador(props) {
     return(
         <Drawer.Navigator 
             initialRouteName= "InícioMorador"
-            drawerStyle={styles.drawerStyle}
+            drawerStyle={styles.barraLateral}
             drawerContentOptions={{labelStyle: {"color": "#fff", fontSize: 18}}}   
             drawerContent={propsInterno => 
-                <CustomDrawerContent {...propsInterno} {...props}  />               
+                <AreaDeLogout {...propsInterno} {...props}  />               
             
             }            
 
@@ -42,14 +43,21 @@ function MenuMorador(props) {
     )
 }
 
-function CustomDrawerContent(props, routes) {
-    //console.log("CustomDrawer:", props);
+function AreaDeLogout(props, routes) {    
+    function botaoSair() {
+        props.acaoBotaoSair().then(()=> {
+            props.navigation.replace('Login');
+        })
+        .catch( erro => {
+            console.log("Erro no retorno no componente: ", erro);	
+        });	
+    }
     
     return(
         <DrawerContentScrollView {...props}>
             <PerfilDoUsuario {...props} />
             <DrawerItemList {...props} />
-            <DrawerItem label="Sair" onPress={() => {props.navigation.popToTop()}} labelStyle={ {color: '#fff', fontSize: 18}} icon={() => <Icon name="sign-out" size={30} color="#fff"/>} />    
+            <DrawerItem label="Sair" onPress={() => {botaoSair()}} labelStyle={ {color: '#fff', fontSize: 18}} icon={() => <Icon name="sign-out" size={30} color="#fff"/>} />    
         </DrawerContentScrollView>
     )
 }
@@ -59,9 +67,9 @@ function PerfilDoUsuario(props) {
     return(
         <TouchableOpacity onPress={()=>{props.navigation.navigate("InícioMorador")}}>
             <View style={styles.container}>                
-                <View style={styles.containerText}>
-                    <Text style={styles.drawerText}>{props.usuario.data().nome}</Text>
-                    <Text style={styles.drawerTextSmall}>{props.usuario.data().email}</Text>
+                <View style={styles.containerDoTexto}>
+                    <Text style={styles.textoNome}>{props.usuario.data().nome}</Text>
+                    <Text style={styles.textoEmail}>{props.usuario.data().email}</Text>
                 </View>
 
             </View>
@@ -71,24 +79,20 @@ function PerfilDoUsuario(props) {
 
 const styles = StyleSheet.create({
     
-    containerText: {
+    containerDoTexto: {
         marginTop: 15,
         alignItems: 'center',
        
     },
-    drawerTextSmall: {
+    textoEmail: {
         color: '#fff',
         fontSize: 14
     },
-    drawerText: {
+    textoNome: {
         color: '#fff',
         fontSize: 18
     },
-    imageStyle: {
-        width: 100,
-        height: 100
-    },
-    drawerStyle: {
+    barraLateral: {
         width: 310,
         backgroundColor: '#7C90B8'   
     }, 
@@ -98,6 +102,10 @@ const styles = StyleSheet.create({
     }
 })
 
+const mapDispatchToProps = {
+    acaoBotaoSair
+}
+
 const mapStateToProps = (state) => {  
     return ({
         usuario: state.usuario,
@@ -105,4 +113,4 @@ const mapStateToProps = (state) => {
     })
 }
 
-export default connect(mapStateToProps, null)(MenuMorador);
+export default connect(mapStateToProps, mapDispatchToProps)(MenuMorador);

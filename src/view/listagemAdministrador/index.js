@@ -3,7 +3,7 @@ import {View, Text, Button, FlatList, ActivityIndicator} from 'react-native';
 import { connect } from 'react-redux';
 import firebase from '@react-native-firebase/app'
 
-import HeaderDrawNav from '../../components/headerDrawNav';
+import TituloTela from '../../components/tituloTela';
 import AmbienteCard from '../../components/ambienteCard';
 import { listaAmbientesDoBD } from '../../actions';
 
@@ -17,7 +17,7 @@ function ListagemAdministrador(props) {
 
     return(
         <View>
-            <HeaderDrawNav title='Ambientes Cadastrados' navigation={props.navigation} />
+            <TituloTela titulo='Ambientes Cadastrados' navigation={props.navigation} />
             
             <FlatList
                 data={props.ambientes}

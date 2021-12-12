@@ -17,7 +17,7 @@ import ImgTpBase64 from "react-native-image-base64";
 
 import BotaoPrincipal from '../../components/botaoPrincipal';
 import CampoInput from '../../components/campoInput';
-import HeaderDrawNav from '../../components/headerDrawNav';
+import TituloTela from "../../components/tituloTela";
 import { pegaValorDoCampo, salvaAmbienteNoBD, preenche_todos_os_campos, limpa_formulario } from "../../actions";
 import firebaseConfig from "../../config/firebase";
 
@@ -200,7 +200,7 @@ function NovoAmbiente({ cadastroAmbiente,
     function formularioCadastro() {
         return (
             <View>
-            <HeaderDrawNav title='Cadastro de Ambiente' navigation={navigation} />
+            <TituloTela titulo='Cadastro de Ambiente' navigation={navigation} />
             <ScrollView style={estilo.container}>                
                 <CampoInput             
                     descricaoLabel="Nome do ambiente" expressao="Ex: Salão de festas" 

@@ -4,7 +4,7 @@ import firebase from '@react-native-firebase/app';
 import { connect } from 'react-redux';
 import { apagaReservaDoBD } from '../../actions';
 
-import HeaderDrawNav from '../../components/headerDrawNav';
+import TituloTela from '../../components/tituloTela';
 import ReservasCardMorador from '../../components/reservasCardMorador';
 import { listaReservasDoBDMorador } from '../../actions';
 
@@ -27,7 +27,7 @@ function ReservasMorador({navigation, usuario, listaReservasDoBDMorador, reserva
 
     return(
         <View>            
-            <HeaderDrawNav title='Minhas Reservas' navigation={navigation} />
+            <TituloTela titulo='Minhas Reservas' navigation={navigation} />
             <FlatList
                 data={reservas}
                 renderItem= { ({item}) => {
